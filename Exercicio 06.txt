@@ -1,0 +1,44 @@
+*&---------------------------------------------------------------------*
+*& Report ZEXERC0006
+*& Objetivo: Calcular desconto/acrescimo - Exercício 06
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEXERC0006.
+
+DATA: V_PERCENTUAL TYPE I,
+      V_VALORDESCONTO(8) TYPE P DECIMALS 2,
+      V_VALORFINAL(8) TYPE P DECIMALS 2.
+
+
+* Declaração de variável
+PARAMETERS: P_VALOR(8) TYPE P DECIMALS 2,
+            P_QTDE TYPE I.
+
+* Percentual de desconto
+
+IF P_VALOR <= 100 AND P_QTDE = 1.
+  V_PERCENTUAL = 15.
+
+ELSEIF P_VALOR > 100 AND P_QTDE = 1.
+  V_PERCENTUAL = 20.
+
+ELSEIF P_VALOR <= 100 AND P_QTDE <= 3.
+  V_PERCENTUAL = 5.
+
+ELSEIF P_VALOR > 100 AND P_QTDE <= 3.
+  V_PERCENTUAL = 10.
+
+ELSEIF P_QTDE > 3.
+  V_PERCENTUAL = 10.
+ENDIF.
+* Calculo do desconto
+V_VALORDESCONTO = P_VALOR * V_PERCENTUAL / 100.
+V_VALORFINAL = P_VALOR - V_VALORDESCONTO.
+
+*Imprimindo resultado
+WRITE: 'Valor original =',P_VALOR,
+      /'Qtd.parcela(s) =',P_QTDE,
+      /'Percentual Desconto/ Acréscimo =', V_PERCENTUAL, '%',
+      /'Valor Desconto/ Acréscimo=', V_VALORDESCONTO,
+      /'Valor final =', V_VALORFINAL.

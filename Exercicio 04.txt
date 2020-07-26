@@ -1,0 +1,24 @@
+*&---------------------------------------------------------------------*
+*& Report ZEXERC0004
+*& Cálculo de custo de viagem - Exercício 04
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEXERC0004.
+
+* Declarar variável
+DATA: V_LITROS TYPE P DECIMALS 2,
+      V_VALOR TYPE P DECIMALS 2.
+
+* Declarar parâmetros
+PARAMETERS: P_DIST TYPE P DECIMALS 2,
+            P_VALOR TYPE P DECIMALS 2,
+            P_KM TYPE P DECIMALS 2.
+
+* Cálculo de litros e valor gasto
+V_LITROS = P_DIST / P_KM.
+V_VALOR =  V_LITROS * P_VALOR.
+
+* Imprimindo resultados
+WRITE: 'Quantidade de combustível gasto:',V_LITROS,
+      /'Valor total gasto:',V_VALOR.

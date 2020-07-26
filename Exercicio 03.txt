@@ -1,0 +1,20 @@
+*&---------------------------------------------------------------------*
+*& Report ZEXERC0003
+*& Cálculo percentual - Exercício 03.
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEXERC0003.
+
+* Declarando variável
+DATA V_PERCENTUAL TYPE P DECIMALS 2.
+
+* Declarando PARAMETER
+PARAMETERS: P_VALOR TYPE P DECIMALS 2,
+            P_PERC TYPE P DECIMALS  2.
+
+* Cálculando percentual
+V_PERCENTUAL = P_VALOR * ( P_PERC / 100 ).
+
+* Imprimindo valor
+WRITE: 'O valor percentual é:', V_PERCENTUAL.

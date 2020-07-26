@@ -1,0 +1,21 @@
+*&---------------------------------------------------------------------*
+*& Report ZEXERC0002
+*& Cálculo de metro quadrado - Exercício 02
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEXERC0002.
+
+*Declarando variáveis
+DATA V_METROQUADRADO TYPE P DECIMALS 2.
+
+*Declaração de parâmetro
+PARAMETERS: P_MED1 TYPE P DECIMALS 2,
+            P_MED2 TYPE P DECIMALS 2.
+
+*Cálculo do metro quadrado
+
+V_METROQUADRADO = P_MED1 * P_MED2.
+
+*Imprimindo resultado
+WRITE: 'A metragem quadrade é:', V_METROQUADRADO.

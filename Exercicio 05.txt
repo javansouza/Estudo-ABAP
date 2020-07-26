@@ -1,0 +1,47 @@
+*&---------------------------------------------------------------------*
+*& Report ZEXERC0005
+*& Objetivo: Cálcular o IMC - Exercício 05
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZEXERC0005.
+
+* Declaração de variáveis
+DATA: V_IMC TYPE P DECIMALS 2,
+      V_SITUACAO TYPE STRING.
+
+* Declaração de parameter
+PARAMETERS: P_PESO TYPE P DECIMALS 2,
+            P_ALTURA TYPE P DECIMALS 2.
+
+* Cálculo do IMC
+V_IMC = P_PESO / ( P_ALTURA ** 2 ).
+
+* Verificando situação
+
+IF V_IMC < 17.
+  V_SITUACAO = 'muito abaixo do peso'.
+
+ELSEIF V_IMC >= 17 AND  V_IMC < ( 185 / 10 ) .
+   V_SITUACAO = 'Abaixo peso'.
+
+ELSEIF V_IMC >= ( 185 / 10 ) AND  V_IMC < 25 .
+   V_SITUACAO = 'Peso normal'.
+
+ELSEIF V_IMC >= 25 AND  V_IMC < 30 .
+   V_SITUACAO = 'Acima do peso'.
+
+ELSEIF V_IMC >= 30 AND  V_IMC < 35 .
+   V_SITUACAO = 'Obsidade I'.
+
+ELSEIF V_IMC >= 35 AND  V_IMC < 40 .
+   V_SITUACAO = 'Obsidade II (severa)'.
+
+ELSEIF V_IMC >= 40.
+   V_SITUACAO = 'Obesidade III (mórbida)'.
+
+ENDIF.
+
+
+* Imprimindo resultado
+WRITE: ' O IMC', V_IMC, 'e a situação é',V_SITUACAO.
